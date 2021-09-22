@@ -36,3 +36,27 @@ spec:
   - port: 80
     nodePort: 30000
   type: NodePort
+
+---
+########################
+### Register Deployment
+########################
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: register-deployment
+spec:
+  selector:
+    matchLabels:
+      app: register
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: register
+    spec:
+      containers:
+      - name: register
+        image: cekeh/micro-portfolio-register
+        ports:
+        - containerPort: 80
