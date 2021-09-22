@@ -24,7 +24,7 @@ app.get("/", (req, res) => {
 
 app.get("/register", (req, res) => {
     http.get("http://register-service", resp => {
-        res.send(resp);
+        res.send("ok");
     });
 });
 
