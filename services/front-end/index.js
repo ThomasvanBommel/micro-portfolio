@@ -24,9 +24,11 @@ app.get("/", (req, res) => {
 
 app.get("/register", (req, res) => {
     http.get("http://register-service", resp => {
-        console.log(resp);
-        res.send("ok");
-    });
+        let data = '';
+
+        resp.on("data", chunk => data += chunk);
+        resp.on("end", () => res.send(data));
+    }).on("error", err => res.send(err));
 });
 
 app.listen(process.env.PORT ?? 80, () => {
