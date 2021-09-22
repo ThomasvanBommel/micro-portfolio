@@ -60,3 +60,17 @@ spec:
         image: cekeh/micro-portfolio-register
         ports:
         - containerPort: 80
+
+---
+########################
+### Register Service
+########################
+apiVersion: v1
+kind: Service
+metadata:
+  name: register-service
+spec:
+  selector:
+    app: register
+  ports:
+  - port: 80

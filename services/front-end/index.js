@@ -1,8 +1,9 @@
 const express = require("express");
+const http = require("http");
 const os = require("os");
 const app = express();
 
-app.all("*", (req, res) => {
+app.get("/", (req, res) => {
     res.send(`
         <html>
             <head>
@@ -19,6 +20,12 @@ app.all("*", (req, res) => {
             </body>
         </html>
     `);
+});
+
+app.get("/register", (req, res) => {
+    http.get("http://register-service", resp => {
+        res.send(resp);
+    });
 });
 
 app.listen(process.env.PORT ?? 80, () => {
