@@ -16,6 +16,4 @@ jobs:
     - name: Build the Docker image
       run: |
         echo "${{ secrets.DOCKER_HUB_USERNAME }}/repo"
-        foreach i (*)
-        echo "Working with $i"
-        end
+        for i in ./services/*; do echo "Working with $i"; done
