@@ -1,0 +1,38 @@
+########################
+### Front-end Deployment
+########################
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: front-end-deployment
+spec:
+  selector:
+    matchLabels:
+      app: front-end
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: front-end
+    spec:
+      containers:
+      - name: front-end
+        image: cekeh/micro-portfolio-front-end
+        ports:
+        - containerPort: 80
+
+---
+########################
+### Front-end Service
+########################
+apiVersion: v1
+kind: Service
+metadata:
+  name: front-end-service
+spec:
+  selector:
+    app: front-end
+  ports:
+  - port: 80
+    nodePort: 30000
+  type: NodePort

@@ -1,0 +1,23 @@
+{
+  "name": "micro-portfolio-front-end",
+  "version": "1.0.0",
+  "description": "Front-end web service for my microservice portfolio",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ThomasvanBommel/micro-portfolio-front-end.git"
+  },
+  "author": "Thomas vanBommel",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ThomasvanBommel/micro-portfolio-front-end/issues"
+  },
+  "homepage": "https://github.com/ThomasvanBommel/micro-portfolio-front-end#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
