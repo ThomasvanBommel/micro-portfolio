@@ -5,10 +5,11 @@ ENV NODE_ENV=production
 RUN mkdir /app
 WORKDIR /app
 
-COPY package.json package-lock.json ./
+# COPY package.json package-lock.json ./
+COPY ./services/front-end .
 
 RUN npm install --production
 
-COPY . .
+# COPY . .
 
 CMD ["npm", "start"]
