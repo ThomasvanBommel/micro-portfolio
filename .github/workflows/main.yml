@@ -17,6 +17,6 @@ jobs:
       run: |
         echo "${{ secrets.DOCKER_HUB_TOKEN }}" | docker login -u "${{ secrets.DOCKER_HUB_USERNAME }}" --password-stdin docker.io
         for i in ./services/*; \
-        do docker build . --file Dockerfile --tag docker.io/${{ secrets.DOCKER_HUB_USERNAME }}/micro-portfolio-$(basename $i):latest && \
+        do docker build . --file $i/Dockerfile --tag docker.io/${{ secrets.DOCKER_HUB_USERNAME }}/micro-portfolio-$(basename $i):latest && \
         docker push docker.io/${{ secrets.DOCKER_HUB_USERNAME }}/micro-portfolio-$(basename $i):latest; \
         done
