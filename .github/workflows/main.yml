@@ -14,10 +14,10 @@ jobs:
       run: |
         echo "${{ secrets.DOCKER_HUB_TOKEN }}" | docker login -u "${{ secrets.DOCKER_HUB_USERNAME }}" --password-stdin docker.io
         for i in ./services/*; \
-          do NAME=$(basename $i) &&
+          do NAME=$(basename $i) && \
           docker build . \
             --tag docker.io/${{ secrets.DOCKER_HUB_USERNAME }}/micro-portfolio-$NAME:latest \
             --tag docker.io/${{ secrets.DOCKER_HUB_USERNAME }}/micro-portfolio-$NAME:$GITHUB_SHA \
-            --file - <<< sed "s/SERVICE_DIR/.\/services\/$NAME/g" Dockerfile &&
+            --file - <<< sed "s/SERVICE_DIR/.\/services\/$NAME/g" Dockerfile && \
           docker push --all-tags docker.io/${{ secrets.DOCKER_HUB_USERNAME }}/micro-portfolio-$NAME; \
         done
