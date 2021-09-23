@@ -1,7 +1,7 @@
 {
-  "name": "micro-portfolio-register",
+  "name": "micro-portfolio-user",
   "version": "1.0.0",
-  "description": "Register service for my microservice portfolio",
+  "description": "User service for my microservice portfolio",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
