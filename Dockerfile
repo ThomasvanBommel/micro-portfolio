@@ -5,7 +5,7 @@ ENV NODE_ENV=production
 RUN mkdir /app
 WORKDIR /app
 
-COPY ./services/front-end .
+COPY ${{ service }} .
 
 RUN npm install --production
 

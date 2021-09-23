@@ -7,4 +7,4 @@ app.post("/register", (req, res) => {
     });
 });
 
-app.listen(process.env.PORT ?? 80, () => console.log("Listening..."));
+app.listen(process.env.PORT || 80, () => console.log("Listening..."));

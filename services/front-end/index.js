@@ -31,6 +31,6 @@ app.post("/register", (req, res) => {
     }).on("error", err => res.send(JSON.parse(err)));
 });
 
-app.listen(process.env.PORT ?? 80, () => {
+app.listen(process.env.PORT || 80, () => {
     console.log("Listening...");
 });
