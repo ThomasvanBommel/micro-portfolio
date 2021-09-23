@@ -18,6 +18,6 @@ jobs:
           docker build . \
             --tag docker.io/${{ secrets.DOCKER_HUB_USERNAME }}/micro-portfolio-$NAME:latest \
             --tag docker.io/${{ secrets.DOCKER_HUB_USERNAME }}/micro-portfolio-$NAME:$GITHUB_SHA \
-            --file - <<< sed "s/SERVICE_DIR/.\/services\/$NAME/g" Dockerfile && \
+            --file - <<< sed "s|SERVICE_DIR|$i|g" Dockerfile && \
           docker push --all-tags docker.io/${{ secrets.DOCKER_HUB_USERNAME }}/micro-portfolio-$NAME; \
         done
