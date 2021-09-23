@@ -22,13 +22,13 @@ app.get("/", (req, res) => {
     `);
 });
 
-app.get("/register", (req, res) => {
-    http.get("http://register-service", resp => {
+app.post("/register", (req, res) => {
+    http.post("http://register-service", resp => {
         let data = '';
 
         resp.on("data", chunk => data += chunk);
-        resp.on("end", () => res.send(data));
-    }).on("error", err => res.send(err));
+        resp.on("end", () => res.send(JSON.parse(data)));
+    }).on("error", err => res.send(JSON.parse(err)));
 });
 
 app.listen(process.env.PORT ?? 80, () => {
