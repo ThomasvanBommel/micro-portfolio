@@ -5,9 +5,11 @@ const os = require("os");
 
 const app = express();
 const client = new Client({
+    user: "postgres",
     host: "postgres-service",
     database: "db",
-    password: "ABC123"
+    password: "ABC123",
+    port: 5432
 });
 
 client.connect();
