@@ -5,7 +5,7 @@ const os = require("os");
 
 const app = express();
 const client = new Client({
-    host: "http://postgres-service",
+    host: "postgres-service",
     database: "db",
     password: "ABC123"
 });
