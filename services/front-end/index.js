@@ -4,13 +4,13 @@ const http = require("http");
 const os = require("os");
 
 const app = express();
-const client = new Client();
-
-await client.connect({
+const client = new Client({
     host: "http://postgres-service",
     database: "db",
     password: "ABC123"
 });
+
+client.connect();
 
 app.get("/", async (req, res) => {
     client.query("SELECT NOW()", (err, resp) => {
