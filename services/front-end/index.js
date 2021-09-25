@@ -30,7 +30,7 @@ app.get("/", async (req, res) => {
                         <code style="color:red;opacity:0.5;">${ os.hostname() }</code>
                         <br><br>
                         Postgres Response:<br>
-                        <code>${ err ?? resp }</code>
+                        <code>${ JSON.stringify(err ?? resp) }</code>
                     </div>
                 </body>
             </html>
